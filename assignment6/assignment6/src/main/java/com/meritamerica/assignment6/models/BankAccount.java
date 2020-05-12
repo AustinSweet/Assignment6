@@ -20,12 +20,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @MappedSuperclass
-@Table(name = "bank_accounts", catalog = "merit_bank_database")
+@Table(name = "bank_accounts")//, catalog = "merit_bank_database")
 public abstract class BankAccount {
 
 	//JPA Primary Key
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//@Column(name = "account_id")
 	protected Integer id;
 	

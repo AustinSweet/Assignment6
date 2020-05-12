@@ -19,12 +19,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "account_holders", catalog = "merit_bank_database")
+@Table(name = "account_holders")//, catalog = "merit_bank_database")
 public class AccountHolder implements Comparable<AccountHolder> {
 	
 	//JPA Primary Key
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ah_id")
 	private Integer id;
 	
@@ -47,6 +47,7 @@ public class AccountHolder implements Comparable<AccountHolder> {
 	public void setContactDetails(AccountHolderContactDetails contactDetails) {
 		this.contactDetails = contactDetails;
 	}
+	
 	//JPA Mapping 1-Many with different account types
 	@OneToMany(cascade = CascadeType.ALL)
 	//@JoinColumn(name = "ah_id", referencedColumnName = "ah_id")

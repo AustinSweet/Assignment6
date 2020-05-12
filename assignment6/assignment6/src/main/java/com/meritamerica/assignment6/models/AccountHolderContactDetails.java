@@ -12,13 +12,13 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "contact_details", catalog = "merit_bank_database")
+@Table(name = "contact_details")//, catalog = "merit_bank_database")
 public class AccountHolderContactDetails {
 
 	
 	//JPA Primary Key
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "contact_id")
 	private Integer id;
 

@@ -8,7 +8,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+//import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,29 +31,43 @@ import com.meritamerica.assignment6.repos.AccountHolderRepo;
 import com.meritamerica.assignment6.repos.CDAccountRepo;
 import com.meritamerica.assignment6.repos.CDOfferingRepo;
 import com.meritamerica.assignment6.repos.CheckingAccountRepo;
-import com.meritamerica.assignment6.repos.ContactInfoRepo;
+import com.meritamerica.assignment6.repos.AccountHolderContactDetailsRepo;
 import com.meritamerica.assignment6.repos.SavingsAccountRepo;
 
 @RestController
 public class MeritBankController {
 
-	//TODO implement methods inside of get/postmapping methods on the logger object we create
+	//TODO create Status Code Returns for our exceptions
+	//TODO implement methods inside of get/post methods on the logger object we create
+	//TODO ditch autowired, implement h2, change Auto to Identity, maybe change id type from Integers to Long (This shouldn't matter though)
+	
+	//When you connect to the H2 url below, use the same h2 url to connect. It will default to a test value
+	
+	//H2 Web Url:
+	//http://localhost:8080/h2-console/login.jsp
+	
+	//Info for application.properties file:
+	//spring.datasource.url = jdbc:h2:mem:testdb
+	//spring.datasource.driverClassName = org.h2.Driver
+	//spring.datasource.username = sa
+	//spring.datasource.password = 
+	
 	Logger logger = LoggerFactory.getLogger(MeritBankController.class);
 
 	List<AccountHolder> aHController = new ArrayList<AccountHolder>();
 	List<CDOffering> cDController = new ArrayList<CDOffering>();
 	
-	@Autowired
+	//@Autowired
 	private AccountHolderRepo holderRepo;
-	@Autowired
-	private ContactInfoRepo contactRepo;
-	@Autowired
+	//@Autowired
+	private AccountHolderContactDetailsRepo contactRepo;
+	//@Autowired
 	private CheckingAccountRepo checkingRepo;
-	@Autowired
+	//@Autowired
 	private SavingsAccountRepo savingsRepo;
-	@Autowired
+	//@Autowired
 	private CDAccountRepo cdARepo;
-	@Autowired
+	//@Autowired
 	private CDOfferingRepo cdORepo;
 	
 	public MeritBankController() {

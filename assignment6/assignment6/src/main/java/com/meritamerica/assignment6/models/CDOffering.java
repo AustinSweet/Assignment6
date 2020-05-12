@@ -16,15 +16,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "cd_offerings", catalog = "merit_bank_database")
+@Table(name = "cd_offerings")//, catalog = "merit_bank_database")
 public class CDOffering {
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<CDAccount> cdAccounts;
 	
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "cdo_id")
 	private Integer id;
 	
